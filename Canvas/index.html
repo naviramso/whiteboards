@@ -1,14 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Whiteboard</title>
 </head>
-<body class="w3_row">
-    <canvas id="micanvas"  style="border: solid black;"></canvas>
+
+<body>
+    <div>
+        <h1> Whiteboard Canvas</h1>
+    </div>
+    <div class="container">
+        
+        <canvas id="micanvas" width="1000" height="720"></canvas>
+    
+    </div>
+    <div class="menu">
+        <button class="dropdown">
+            <div class="dropdown-content">
+                <span class="menu-txt">color</span>
+                <div>
+                    <input type="button" value="black" class="button-color w3-black" onclick="setColor(this.value)">
+                    <input type="button" value="red" class="button-color w3-red" onclick="setColor(this.value)">
+                    <input type="button" value="green" class="button-color w3-green" onclick="setColor(this.value)">
+                    <input type="button" value="yellow" class="button-color w3-yellow" onclick="setColor(this.value)">
+                    <input type="button" value="blue" class="button-color w3-blue" onclick="setColor(this.value)">
+                    <input type="color" name="" id="selector-color" class="button-color" oninput="setColor(this.value)">
+                </div>
+                <span class="menu-txt">grosor</span>
+                <div>
+                    <input id="grosor-range" type="range" onclick="setGrosor()" list="tickmarks" min="1" max="10" step="1">
+                    <datalist id="tickmarks">
+                      <option value="1" label="1">
+                      <option value="10" label="10">
+                    </datalist>
+                </div>
+            </div>
+            <i class="fa fa-pencil font-icon" style="font-size: 30px;" aria-hidden="true"></i>
+        </button>
+        <button onclick="setColor('white')">
+            <i class="fa fa-eraser" style="font-size: 30px;" aria-hidden="true"></i>
+        </button>
+        <button onclick="limpiar()">
+            <i class="fa fa-trash"  style="font-size: 30px;" aria-hidden="true"></i>
+        </button>
+        <button id="btnDescargar">
+            <i class="fa fa-save" style="font-size: 30px;" aria-hidden="true"></i>
+        </button>
+    </div>
     <script src="script.js"></script>
 </body>
+
 </html>

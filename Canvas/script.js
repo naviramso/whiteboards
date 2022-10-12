@@ -1,8 +1,11 @@
+var grosor = 2;
 var x,y;
 var bandera= false;
 var canvas = document.getElementById("micanvas");
 var ctx = canvas.getContext("2d");
 var canvasize = canvas.getBoundingClientRect();
+var color = 'black';
+$btnDescargar = document.querySelector("#btnDescargar");
 
 function mousedown(event){
     bandera =true ;
@@ -23,11 +26,35 @@ function mousemove(event){
 }
 function dibujar(x1,y1){
     ctx.beginPath();
+    ctx.lineWidth = grosor;
+    ctx.strokeStyle = color;
     ctx.moveTo(x,y);
     ctx.lineTo(x1,y1);
     ctx.stroke();
     ctx.closePath();
 }
+
+function setColor(cl){
+    console.log(cl);
+    color = cl;
+} 
+
+function setGrosor(){
+    grosor = document.getElementById('grosor-range').value;
+}
+
+function limpiar(){
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, 1000, 720);
+}
+
+$btnDescargar.addEventListener("click", () => {
+    let enlace = document.createElement('a');
+    enlace.download = "Canvas como imagen.jpg";
+    enlace.href = canvas.toDataURL("image/jpeg", 1);
+    enlace.click();
+})
+
 canvas.addEventListener('mousedown',mousedown);
 canvas.addEventListener("mouseup",mouseup);
 canvas.addEventListener("mousemove",mousemove);
