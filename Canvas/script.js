@@ -2,19 +2,20 @@ var x,y;
 var bandera= false;
 var canvas = document.getElementById("micanvas");
 var ctx = canvas.getContext("2d");
+var canvasize = canvas.getBoundingClientRect();
 
 function mousedown(event){
     bandera =true ;
-    x=event.clientX;
-    y=event.clientY;
+    x=event.clientX- canvasize.left;
+    y=event.clientY - canvasize.top;
 }
 function mouseup(event){
     bandera = false;
 }
 function mousemove(event){
     if(bandera){
-        var x1 = event.clientX;
-        var y1 = event.clientY;
+        var x1 = event.clientX -canvasize.left;
+        var y1 = event.clientY - canvasize.top;
         dibujar(x1,y1);
         x=x1;
         y=y1;
