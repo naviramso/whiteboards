@@ -13,9 +13,9 @@
         <h1> Whiteboard Canvas</h1>
     </div>
     <div class="container">
-        
+
         <canvas id="micanvas" width="1000" height="720"></canvas>
-    
+
     </div>
     <div class="menu">
         <button class="dropdown">
@@ -27,24 +27,34 @@
                     <input type="button" value="green" class="button-color w3-green" onclick="setColor(this.value)">
                     <input type="button" value="yellow" class="button-color w3-yellow" onclick="setColor(this.value)">
                     <input type="button" value="blue" class="button-color w3-blue" onclick="setColor(this.value)">
-                    <input type="color" name="" id="selector-color" class="button-color" oninput="setColor(this.value)">
-                </div>
-                <span class="menu-txt">grosor</span>
-                <div>
-                    <input id="grosor-range" type="range" onclick="setGrosor()" list="tickmarks" min="1" max="10" step="1">
-                    <datalist id="tickmarks">
-                      <option value="1" label="1">
-                      <option value="10" label="10">
-                    </datalist>
+                    <input type="color" value="#3214da" name="" id="selector-color" class="button-color" oninput="setColor(this.value)">
                 </div>
             </div>
             <i class="fa fa-pencil font-icon" style="font-size: 30px;" aria-hidden="true"></i>
         </button>
+
+        
         <button onclick="setColor('white')">
             <i class="fa fa-eraser" style="font-size: 30px;" aria-hidden="true"></i>
         </button>
+
+        <button class="dropdown">
+            <div class="dropdown-content">
+                <span class="menu-txt">grosor</span>
+                <div>
+                    <input id="grosor-range" type="range" onclick="setGrosor()" list="tickmarks" min="1" max="10"
+                        step="1">
+                    <datalist id="tickmarks">
+                        <option value="1" label="1">
+                        <option value="10" label="10">
+                    </datalist>
+                </div>
+            </div>
+            <i class="fa fa-minus" aria-hidden="true"></i>
+        </button>
+
         <button onclick="limpiar()">
-            <i class="fa fa-trash"  style="font-size: 30px;" aria-hidden="true"></i>
+            <i class="fa fa-trash" style="font-size: 30px;" aria-hidden="true"></i>
         </button>
         <button id="btnDescargar">
             <i class="fa fa-save" style="font-size: 30px;" aria-hidden="true"></i>

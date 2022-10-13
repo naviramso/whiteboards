@@ -1,4 +1,4 @@
-var grosor = 2;
+var grosor = 1;
 var x,y;
 var bandera= false;
 var canvas = document.getElementById("micanvas");
