@@ -26,8 +26,12 @@ function mousemove(event){
 }
 function dibujar(x1,y1){
     ctx.beginPath();
-    ctx.lineWidth = grosor;
-    ctx.strokeStyle = color;
+   ctx.lineWidth = 4*grosor;
+   ctx.fillStyle = color; 
+   ctx.strokeStyle = color;
+    ctx.arc(x1,y1,grosor,0,2*Math.PI,false);
+    ctx.fill();
+    ctx.stroke();
     ctx.moveTo(x,y);
     ctx.lineTo(x1,y1);
     ctx.stroke();
