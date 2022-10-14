@@ -1,11 +1,12 @@
 const canvas = document.getElementById("comportamiento");
-var elemento = "<circle ";
-var nElemento= 1;
+var elemento = "";
+var inicio ='<polyline points="';
+var fin='';
 var rect=canvas.getBoundingClientRect();
 var x=0, y=0,dibujando=false, color='black', grosor=1;
 var limpiar = document.getElementById("limpiar");
 var bandera=false;
-var guardado="";
+var guardado='';
 
 
 limpiar.addEventListener("click",function(){
@@ -23,6 +24,7 @@ function setGrosor(){
 
 
 canvas.addEventListener('mousedown',function(e){   
+    fin = '" style="fill:none;stroke:'+color+';stroke-width:'+grosor+'" />';
     dibujando=true;
 });
 
@@ -39,26 +41,18 @@ canvas.addEventListener('mousemove',function(e){
 canvas.addEventListener('mouseup',function(e){
 
         dibujando=false
-        elemento = "<circle ";
-        guardado = document.getElementById("dibujos").innerHTML;
+        guardado = guardado +elemento ;
+        inicio= '<polyline points="';
         console.log(guardado);
     
 });
 
 function dibujar(x,y){
-    if (bandera===true){
-        //var elemento2 = elemento.substring(0, elemento.length - 2);
-        //elemento = elemento.substring(0, elemento.length - 2);
-        //console.log('elemto2' + elemento);
-    }
-    elemento += "cx='"  + x + "' cy='" + y+ "' r='"+ grosor +"' fill='"+color+"' />";
-
-    var svg= document.getElementById("dibujos");
-        var svg2=document.getElementById("dibujos").innerHTML;
-        console.log( elemento );
-        svg.innerHTML = guardado + elemento;
-        elemento="<circle "
-        var svg2=document.getElementById("dibujos").innerHTML;
-        guardado = document.getElementById("dibujos").innerHTML;
+   
+    inicio = inicio+x+","+y+" ";
+    elemento  =inicio+fin;
+    var svg= document.getElementById("dibujos");   
+    svg.innerHTML = guardado + elemento;
+        
         
 }
