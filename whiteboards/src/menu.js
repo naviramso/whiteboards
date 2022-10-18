@@ -5,6 +5,7 @@ export function Menu(){
         <Button></Button>
         <Button></Button>
         <Button></Button>
+        <Button></Button>
     </div>
 }
 
@@ -13,4 +14,8 @@ function Button(){
         <button className='button-menu'>
         </button>
     </>
+}
+
+function Drown(){
+
 }
