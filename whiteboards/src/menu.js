@@ -1,10 +1,16 @@
+import './menu.css'
+
 export function Menu(){
-    return <div>
+    return <div className="menu-container">
+        <Button></Button>
+        <Button></Button>
         <Button></Button>
     </div>
 }
 
 function Button(){
-    return <Button style={{background: 'red'}}>
-    </Button>
+    return <>
+        <button className='button-menu'>
+        </button>
+    </>
 }
